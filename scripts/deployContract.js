@@ -18,24 +18,16 @@
  *
  */
 
-const { ethers } = require("hardhat");
+const hre = require("hardhat");
 
 module.exports = async () => {
-  //Assign the first signer, which comes from the first privateKey from our configuration in hardhat.config.js, to a wallet variable.
-  let wallet = (await ethers.getSigners())[0];
-
-  //Initialize a contract factory object
+  //Deploy contract providing
   //name of contract as first parameter
-  //wallet/signer used for signing the contract calls/transactions with this contract
-  const Greeter = await ethers.getContractFactory("Greeter", wallet);
-  //Using already initialized contract factory object with our contract, we can invoke deploy function to deploy the contract.
-  //Accepts constructor parameters from our contract
-  const greeter = await Greeter.deploy("initial_msg");
+  //array with constructor parameters from our contract as the second one
   //We use wait to receive the transaction (deployment) receipt, which contains contractAddress
-  const contractAddress = (await greeter.deployTransaction.wait())
-    .contractAddress;
+  const greeter = await hre.viem.deployContract("Greeter", ["initial_msg"]);
 
-  console.log(`Greeter deployed to: ${contractAddress}`);
+  console.log(`Greeter deployed to: ${greeter.address}`);
 
-  return contractAddress;
+  return greeter.address;
 };

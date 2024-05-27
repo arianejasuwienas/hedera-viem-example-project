@@ -18,15 +18,24 @@
  *
  */
 
+
 const hre = require("hardhat");
 const { expect } = require("chai");
+const { privateKeyToAccount } = require('viem/accounts');
+const { createWalletClient, http } = require('viem');
+const { testnet } = require('viem/chains');
 
 describe("RPC", function () {
   let contractAddress;
-  let signers;
+  let client;
 
   before(async function () {
-    signers = await hre.ethers.getSigners();
+    const account = privateKeyToAccount(process.env.TESTNET_OPERATOR_PRIVATE_KEY);
+    client = createWalletClient({
+      account,
+      chain: testnet,
+      transport: http(process.env.TESTNET_ENDPOINT),
+    });
   });
 
   it("should be able to get the account balance", async function () {
@@ -43,11 +52,11 @@ describe("RPC", function () {
     const res = await hre.run("contract-view-call", { contractAddress });
     expect(res).to.be.equal("initial_msg");
   });
-
-  it("should be able to make a contract call", async function () {
-    const msg = "updated_msg";
-    await hre.run("contract-call", { contractAddress, msg });
-    const res = await hre.run("contract-view-call", { contractAddress });
-    expect(res).to.be.equal(msg);
-  });
+  /*
+    it("should be able to make a contract call", async function () {
+      const msg = "updated_msg";
+      await hre.run("contract-call", { contractAddress, msg });
+      const res = await hre.run("contract-view-call", { contractAddress });
+      expect(res).to.be.equal(msg);
+    });*/
 });

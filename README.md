@@ -1,8 +1,20 @@
-# Hedera Hardhat Example Project
+# Hedera Hardhat Viem Example Project
 
-This Hedera Hardhat Example Project offers boilerplate code for testing and deploying smart contracts via Hardhat. It includes configuration for both community-hosted and local ([Hedera Local Node](https://github.com/hashgraph/hedera-local-node)) instances of the [Hedera JSON RPC Relay](https://github.com/hashgraph/hedera-json-rpc-relay). 
+This Hedera Hardhat Viem Example Project offers boilerplate code for testing and deploying smart contracts via Hardhat with Viem. It includes configuration for both community-hosted and local ([Hedera Local Node](https://github.com/hashgraph/hedera-local-node)) instances of the [Hedera JSON RPC Relay](https://github.com/hashgraph/hedera-json-rpc-relay). 
 
 :fire: Check out the step-by-step tutorial [here](https://docs.hedera.com/hedera/tutorials/smart-contracts/deploy-a-smart-contract-using-hardhat-and-hedera-json-rpc-relays).
+
+# Viem vs Ethers.js Comparison
+
+This comparison aims to assist developers in selecting the most suitable library for their specific project requirements. For further information about Viem, please visit [https://viem.sh/docs/introduction](https://viem.sh/docs/introduction).
+
+| Feature               | Viem                                                                 | Ethers.js                               |
+|-----------------------|----------------------------------------------------------------------|-----------------------------------------|
+| Performance           | [Optimized for speed](https://viem.sh/docs/introduction#performance) | Reliable performance                    |
+| API Design            | Intuitive, developer-friendly                                        | Well-designed, widely used              |
+| Documentation         | Comprehensive and clear                                              | Good, but may vary by feature           |
+| Debugging             | Advanced debugging tools                                             | Standard debugging capabilities         |
+| Ecosystem Integration | Seamless integration with certain tools                              | Broad integration with many tools       |
 
 ## Project Files and Folders
 
@@ -15,19 +27,19 @@ This Hedera Hardhat Example Project offers boilerplate code for testing and depl
 -  `/scripts` - This folder contains essential JavaScript files for tasks such as deploying smart contracts to the Hedera network. 
 
 - `.env.example` - This file is contains the environment variables needed by the project. Copy this file to a `.env` file and fill in the actual values before starting the development server or deploying smart contracts. To expedite your test setup and deployment, some variables are pre-filled in this example file.
-  
+
 ## Setup
 
 1. Clone this repo to your local machine:
 
 ```shell
-git clone https://github.com/hashgraph/hedera-hardhat-example-project.git
+git clone https://github.com/hashgraph/hedera-hardhat-viem-example-project.git
 ```
 
 2. Once you've cloned the repository, open your IDE terminal and navigate to the root directory of the project:
 
 ```shell
-cd hedera-hardhat-example-project
+cd hedera-hardhat-viem-example-project
 ```
 
 3. Run the following command to install all the necessary dependencies:
