@@ -29,7 +29,7 @@ module.exports = async (address, msg) => {
   const greeter = await hre.viem.getContractAt('Greeter', address);
 
   //using the greeter object(which is our contract) we can call functions from the contract. In this case we call setGreeting with our new msg
-  const updateTx = await greeter.write.setGreeting(msg);
+  const updateTx = await greeter.write.setGreeting([msg]);
 
   console.log(`Updated call result: ${msg}`);
 

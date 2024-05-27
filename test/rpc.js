@@ -52,11 +52,11 @@ describe("RPC", function () {
     const res = await hre.run("contract-view-call", { contractAddress });
     expect(res).to.be.equal("initial_msg");
   });
-  /*
-    it("should be able to make a contract call", async function () {
-      const msg = "updated_msg";
-      await hre.run("contract-call", { contractAddress, msg });
-      const res = await hre.run("contract-view-call", { contractAddress });
-      expect(res).to.be.equal(msg);
-    });*/
+
+  it("should be able to make a contract call", async function () {
+    const msg = "updated_msg";
+    await hre.run("contract-call", { contractAddress, msg });
+    const res = await hre.run("contract-view-call", { contractAddress });
+    expect(res).to.be.equal(msg);
+  });
 });
