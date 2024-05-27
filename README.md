@@ -100,4 +100,4 @@ participating, you are expected to uphold this code of conduct. Please report un
 to [oss@hedera.com](mailto:oss@hedera.com).
 
 # License
-[Apache License 2.0](LICENSE)
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
