@@ -1,6 +1,6 @@
 /*-
  *
- * Hedera Hardhat Example Project
+ * Hedera Hardhat Viem Example Project
  *
  * Copyright (C) 2023 Hedera Hashgraph, LLC
  *

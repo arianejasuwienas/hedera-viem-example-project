@@ -1,6 +1,6 @@
 /*-
  *
- * Hedera Hardhat Example Project
+ * Hedera Hardhat Viem Example Project
  *
  * Copyright (C) 2023 Hedera Hashgraph, LLC
  *
@@ -18,25 +18,11 @@
  *
  */
 
-
 const hre = require("hardhat");
 const { expect } = require("chai");
-const { privateKeyToAccount } = require('viem/accounts');
-const { createWalletClient, http } = require('viem');
-const { testnet } = require('viem/chains');
 
 describe("RPC", function () {
   let contractAddress;
-  let client;
-
-  before(async function () {
-    const account = privateKeyToAccount(process.env.TESTNET_OPERATOR_PRIVATE_KEY);
-    client = createWalletClient({
-      account,
-      chain: testnet,
-      transport: http(process.env.TESTNET_ENDPOINT),
-    });
-  });
 
   it("should be able to get the account balance", async function () {
     const balance = await hre.run("show-balance");
